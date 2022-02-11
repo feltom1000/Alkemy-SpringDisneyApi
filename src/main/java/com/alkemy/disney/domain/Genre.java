@@ -9,7 +9,7 @@ public class Genre {
 
     private List<MoviesOrSeries> moviesOrSeriesList;
 
-    
+
     public int getId() {
         return id;
     }
