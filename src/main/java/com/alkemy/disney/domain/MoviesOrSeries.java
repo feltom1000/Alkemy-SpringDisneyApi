@@ -1,11 +1,15 @@
 package com.alkemy.disney.domain;
 
+import java.util.Date;
 import java.util.List;
 
 public class MoviesOrSeries {
     private int id;
-    private String name;
     private String img;
+    private String title;
+    private Date creationDate;
+    private int calification;
+
     private int genreId;
 
     private Genre genre;
@@ -21,11 +25,11 @@ public class MoviesOrSeries {
     }
 
     public String getName() {
-        return name;
+        return title;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.title = name;
     }
 
     public String getImg() {
@@ -58,5 +62,29 @@ public class MoviesOrSeries {
 
     public void setCharacters(List<Character> characters) {
         this.characters = characters;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public int getCalification() {
+        return calification;
+    }
+
+    public void setCalification(int calification) {
+        this.calification = calification;
     }
 }

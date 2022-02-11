@@ -1,6 +1,7 @@
 package com.alkemy.disney.persistence.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -10,11 +11,17 @@ public class PeliculaOSerie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String nombre;
     private String imagen;
+    private String titulo;
+
+    @Column(name = "fecha_creacion")
+    private Date fechaDeCreacion;
+
+    private Integer calificacion;
 
     @Column(name = "id_genero")
     private Integer generoId;
+
 
     @ManyToOne
     @JoinColumn(name = "id_genero", insertable = false, updatable = false)
@@ -33,11 +40,11 @@ public class PeliculaOSerie {
     }
 
     public String getNombre() {
-        return nombre;
+        return titulo;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.titulo = nombre;
     }
 
     public String getImagen() {
@@ -70,5 +77,29 @@ public class PeliculaOSerie {
 
     public void setPersonajes(List<Personaje> personajes) {
         this.personajes = personajes;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Date getFechaDeCreacion() {
+        return fechaDeCreacion;
+    }
+
+    public void setFechaDeCreacion(Date fechaDeCreacion) {
+        this.fechaDeCreacion = fechaDeCreacion;
+    }
+
+    public Integer getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(Integer calificacion) {
+        this.calificacion = calificacion;
     }
 }
