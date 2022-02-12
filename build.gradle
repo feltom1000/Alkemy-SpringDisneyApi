@@ -20,6 +20,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
 	runtimeOnly 'org.xerial:sqlite-jdbc:3.36.0.3'
 
+//	// https://mvnrepository.com/artifact/com.github.gwenn/sqlite-dialect
+//	implementation 'com.github.gwenn:sqlite-dialect:0.1.2'
+
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 

@@ -14,7 +14,7 @@ public interface CharacterRepository {
     Optional<List<Character>> getByMovieOrSeries(MovieOrSerie movieOrSerie);
     Optional<Character> getCharacterById(int id);
     Character save(Character character);
-    Character edit(Character id);
+    Character edit(Character character);
     void delete(int characterId);
 
 }
