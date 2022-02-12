@@ -5,6 +5,7 @@ import java.util.List;
 public class Character {
     private int id;
     private String img;
+    private String name;
     private int age;
     private int weight;
     private String story;
@@ -26,6 +27,14 @@ public class Character {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {

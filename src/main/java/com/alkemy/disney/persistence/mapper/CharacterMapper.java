@@ -1,5 +1,6 @@
 package com.alkemy.disney.persistence.mapper;
 
+import com.alkemy.disney.domain.Character;
 import com.alkemy.disney.persistence.entity.Personaje;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
