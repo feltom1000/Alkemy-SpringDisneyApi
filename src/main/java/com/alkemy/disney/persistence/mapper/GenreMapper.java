@@ -9,17 +9,17 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {MoviesOrSeriesMapper.class})
 public interface GenreMapper {
 
     @Mappings({
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "nombre", target = "name"),
-            @Mapping(source = "img", target = "imagen"),
+            @Mapping(source = "imagen", target = "img"),
             @Mapping(source = "peliculaOSeries", target = "moviesOrSeriesList")
     })
     Genre toGenre(Genero genero);
-    List<Genre> toGenres(Genero genero);
+    List<Genre> toGenres(List<Genero> generos);
 
     @InheritInverseConfiguration
     Genero toGenero(Genre genre);

@@ -1,7 +1,6 @@
 package com.alkemy.disney.domain.repository;
 
 import com.alkemy.disney.domain.Genre;
-import com.alkemy.disney.domain.MoviesOrSeries;
 
 import java.util.List;
 import java.util.Optional;

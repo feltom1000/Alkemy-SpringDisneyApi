@@ -10,7 +10,7 @@ public class Character {
     private int weight;
     private String story;
 
-    private List<MoviesOrSeries> moviesOrSeriesList;
+    private List<MovieOrSerie> movieOrSerieList;
 
 
     public int getId() {
@@ -61,11 +61,11 @@ public class Character {
         this.story = story;
     }
 
-    public List<MoviesOrSeries> getMoviesOrSeriesList() {
-        return moviesOrSeriesList;
+    public List<MovieOrSerie> getMoviesOrSeriesList() {
+        return movieOrSerieList;
     }
 
-    public void setMoviesOrSeriesList(List<MoviesOrSeries> moviesOrSeriesList) {
-        this.moviesOrSeriesList = moviesOrSeriesList;
+    public void setMoviesOrSeriesList(List<MovieOrSerie> movieOrSerieList) {
+        this.movieOrSerieList = movieOrSerieList;
     }
 }

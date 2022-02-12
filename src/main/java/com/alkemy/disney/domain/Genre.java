@@ -7,7 +7,7 @@ public class Genre {
     private String name;
     private String img;
 
-    private List<MoviesOrSeries> moviesOrSeriesList;
+    private List<MovieOrSerie> movieOrSerieList;
 
 
     public int getId() {
@@ -34,11 +34,11 @@ public class Genre {
         this.img = img;
     }
 
-    public List<MoviesOrSeries> getMoviesOrSeriesList() {
-        return moviesOrSeriesList;
+    public List<MovieOrSerie> getMoviesOrSeriesList() {
+        return movieOrSerieList;
     }
 
-    public void setMoviesOrSeriesList(List<MoviesOrSeries> moviesOrSeriesList) {
-        this.moviesOrSeriesList = moviesOrSeriesList;
+    public void setMoviesOrSeriesList(List<MovieOrSerie> movieOrSerieList) {
+        this.movieOrSerieList = movieOrSerieList;
     }
 }

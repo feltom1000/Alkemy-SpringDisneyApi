@@ -3,7 +3,7 @@ package com.alkemy.disney.domain;
 import java.util.Date;
 import java.util.List;
 
-public class MoviesOrSeries {
+public class MovieOrSerie {
     private int id;
     private String img;
     private String title;
