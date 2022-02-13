@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public interface CharacterRepository {
     List<Character> getAll();
-    Optional<List<Character>> getByGenre(int genreId);
     Optional<List<Character>> getByName(String name);
     Optional<List<Character>> getByAge(int age);
     Optional<List<Character>> getByMovieOrSeries(MovieOrSerie movieOrSerie);

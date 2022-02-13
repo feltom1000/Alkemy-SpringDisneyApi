@@ -24,21 +24,16 @@ public class PersonajeRepository implements CharacterRepository {
         return mapper.toCharacters((List<Personaje>) personajeCrudRepository.findAll());
     }
 
+
     @Override
-    public Optional<List<Character>> getByGenre(int genreId) {
-        return personajeCrudRepository.findByIdGenero(genreId)
+    public Optional<List<Character>> getByName(String nombre) {
+        return personajeCrudRepository.findByNombre(nombre)
                 .map(personajes -> mapper.toCharacters(personajes));
     }
 
     @Override
-    public Optional<List<Character>> getByName(String name) {
-        return personajeCrudRepository.findByName(name)
-                .map(personajes -> mapper.toCharacters(personajes));
-    }
-
-    @Override
-    public Optional<List<Character>> getByAge(int age) {
-        return personajeCrudRepository.findByAge(age)
+    public Optional<List<Character>> getByAge(int edad) {
+        return personajeCrudRepository.findByEdad(edad)
                 .map(personajes -> mapper.toCharacters(personajes));
     }
 
