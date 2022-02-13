@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PeliculaOSerieCrudRepository extends CrudRepository<PeliculaOSerie, Integer> {
-    Optional<List<MovieOrSerie>> findByGeneroId(int genreId);
-    Optional<List<MovieOrSerie>> findByTitulo(String titulo);
-    Optional<List<MovieOrSerie>> findByCalificacion(int calificacion);
-    Optional<List<MovieOrSerie>> findByFechaDeCreacion(Date fecha);
+    Optional<List<PeliculaOSerie>> findByGeneroId(int genreId);
+    Optional<List<PeliculaOSerie>> findByTitulo(String titulo);
+    Optional<List<PeliculaOSerie>> findByCalificacion(int calificacion);
+    Optional<List<PeliculaOSerie>> findByFechaDeCreacion(Date fecha);
 
     @Modifying
     @Query(value = "UPDATE pelicula_serie u SET u.imagen = ?1 WHERE u.id = ?2", nativeQuery = true)

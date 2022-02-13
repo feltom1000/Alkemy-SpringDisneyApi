@@ -22,46 +22,58 @@ public class PeliculaOSerieRepository implements MoviesOrSeriesRepository {
 
     @Override
     public List<MovieOrSerie> getAll() {
-        return null;
+        return mapper.toMoviesOrSeries((List<PeliculaOSerie>) peliculaOSerieCrudRepository.findAll());
     }
 
     @Override
     public Optional<List<MovieOrSerie>> getByGenre(int genreId) {
-        return Optional.empty();
+        return peliculaOSerieCrudRepository.findByGeneroId(genreId)
+                .map(peliculasOSeries -> mapper.toMoviesOrSeries(peliculasOSeries));
     }
 
     @Override
     public Optional<List<MovieOrSerie>> getByTitle(String title) {
-        return Optional.empty();
+        return peliculaOSerieCrudRepository.findByTitulo(title)
+                .map(peliculasOSeries -> mapper.toMoviesOrSeries(peliculasOSeries));
     }
 
     @Override
     public Optional<List<MovieOrSerie>> getByCalification(int calification) {
-        return Optional.empty();
+        return peliculaOSerieCrudRepository.findByCalificacion(calification)
+                .map(peliculaOSeries -> mapper.toMoviesOrSeries(peliculaOSeries));
     }
 
     @Override
     public Optional<List<MovieOrSerie>> getByCreationDate(Date creationDate) {
-        return Optional.empty();
+        return peliculaOSerieCrudRepository.findByFechaDeCreacion(creationDate)
+                .map(peliculaOSeries -> mapper.toMoviesOrSeries(peliculaOSeries));
     }
 
     @Override
-    public Optional<MovieOrSerie> getMovieOrSeriesById(int Id) {
-        return Optional.empty();
+    public Optional<MovieOrSerie> getMovieOrSeriesById(int id) {
+        Optional<PeliculaOSerie> peliculaOSerie = peliculaOSerieCrudRepository.findById(id);
+        return peliculaOSerie.map(peliculaOSerie1 -> mapper.toMovieOrSerie(peliculaOSerie1));
     }
 
     @Override
     public MovieOrSerie save(MovieOrSerie movieOrSerie) {
-        return null;
+        PeliculaOSerie peliculaOSerie = mapper.toPeliculaOSerie(movieOrSerie);
+        return mapper.toMovieOrSerie(peliculaOSerieCrudRepository.save(peliculaOSerie));
     }
 
     @Override
     public MovieOrSerie edit(MovieOrSerie movieOrSerie) {
-        return null;
+        peliculaOSerieCrudRepository.editTituloById(movieOrSerie.getTitle(), movieOrSerie.getId());
+        peliculaOSerieCrudRepository.editCalificacionById(movieOrSerie.getCalification(), movieOrSerie.getId());
+        peliculaOSerieCrudRepository.editFechaDeCreacionById(movieOrSerie.getCreationDate(), movieOrSerie.getId());
+        peliculaOSerieCrudRepository.editImagenById(movieOrSerie.getImg(), movieOrSerie.getId());
+        peliculaOSerieCrudRepository.editIdGeneroById(movieOrSerie.getGenreId(), movieOrSerie.getId());
+
+        return movieOrSerie;
     }
 
     @Override
     public void delete(int movieOrSeriesId) {
-
+    peliculaOSerieCrudRepository.deleteById(movieOrSeriesId);
     }
 }
