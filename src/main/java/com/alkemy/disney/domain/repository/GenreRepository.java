@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface GenreRepository {
-    Optional<List<Genre>> getAll();
+    List<Genre> getAll();
     Optional<Genre> getGenre(int genreId);
     Genre save(Genre genre);
     void delete(int genreId);
