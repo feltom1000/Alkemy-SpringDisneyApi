@@ -12,7 +12,7 @@ public interface MoviesOrSeriesRepository {
     Optional<List<MovieOrSerie>> getByTitle(String title);
     Optional<List<MovieOrSerie>> getByCalification(int calification);
     Optional<List<MovieOrSerie>> getByCreationDate(Date creationDate);
-    Optional<MovieOrSerie> getMovieOrSeriesById(int Id);
+    Optional<MovieOrSerie> getMovieOrSeriesById(int id);
     MovieOrSerie save(MovieOrSerie movieOrSerie);
     MovieOrSerie edit(MovieOrSerie movieOrSerie);
     void delete(int movieOrSeriesId);
