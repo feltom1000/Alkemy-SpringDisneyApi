@@ -43,7 +43,9 @@ public class MovieOrSerieController {
 
     @GetMapping("/id/{id}")
     public ResponseEntity<MovieOrSerie> getById(@PathVariable("id") int id){
-        return new ResponseEntity<>(movieOrSerieService.getMovieOrSeriesById(id), HttpStatus.OK);
+        return movieOrSerieService.getMovieOrSeriesById(id)
+                .map(characters -> new ResponseEntity<>(characters, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/save")
@@ -52,12 +54,12 @@ public class MovieOrSerieController {
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity<MovieOrSerie> edit(int id, MovieOrSerie movieOrSerie){
+    public ResponseEntity<MovieOrSerie> edit(@PathVariable("id") int id, MovieOrSerie movieOrSerie){
         return new ResponseEntity<>(movieOrSerieService.edit(id,movieOrSerie), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity delete(int id){
+    public ResponseEntity delete(@PathVariable("id") int id){
         if (movieOrSerieService.delete(id)){
             return new ResponseEntity(HttpStatus.OK);
         } else {
