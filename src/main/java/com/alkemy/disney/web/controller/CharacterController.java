@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/character")
+@RequestMapping("/characters")
 public class CharacterController {
     @Autowired
     CharacterService characterService;
@@ -21,22 +21,22 @@ public class CharacterController {
         return new ResponseEntity<>(characterService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/name/{name}")
-    public ResponseEntity<List<Character>> getByName(@PathVariable("name") String name){
+    @GetMapping("/name")
+    public ResponseEntity<List<Character>> getByName(@RequestParam("name") String name){
         return characterService.getByName(name)
                 .map(characters -> new ResponseEntity<>(characters, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/age/{age}")
-    public ResponseEntity<List<Character>> getByAge(@PathVariable("age") int age){
+    @GetMapping("/age")
+    public ResponseEntity<List<Character>> getByAge(@RequestParam("age") int age){
         return characterService.getByAge(age)
                 .map(characters -> new ResponseEntity<>(characters, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/movie-or-series/{movieOrSerie}")
-    public ResponseEntity<List<Character>> getByMovieOrSeries(@PathVariable("movieOrSerie") String movieOrSerie){
+    @GetMapping("/movies")
+    public ResponseEntity<List<Character>> getByMovieOrSeries(@RequestParam("movieOrSerie") String movieOrSerie){
         return characterService.getByMovieOrSeries(movieOrSerie)
                 .map(characters -> new ResponseEntity<>(characters, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
