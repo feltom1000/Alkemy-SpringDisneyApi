@@ -26,7 +26,7 @@ public class CharacterService {
         return characterRepository.getByAge(age);
     }
 
-    public Optional<List<Character>> getByMovieOrSeries(MovieOrSerie movieOrSerie){
+    public Optional<List<Character>> getByMovieOrSeries(String movieOrSerie){
         return characterRepository.getByMovieOrSeries(movieOrSerie);
     }
 
@@ -38,7 +38,7 @@ public class CharacterService {
         return characterRepository.save(character);
     }
 
-    public Character edit(Character character){
+    public Character edit(int id, Character character){
         return characterRepository.edit(character);
     }
 

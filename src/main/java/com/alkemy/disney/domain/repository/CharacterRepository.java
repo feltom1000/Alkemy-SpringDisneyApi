@@ -10,7 +10,7 @@ public interface CharacterRepository {
     List<Character> getAll();
     Optional<List<Character>> getByName(String name);
     Optional<List<Character>> getByAge(int age);
-    Optional<List<Character>> getByMovieOrSeries(MovieOrSerie movieOrSerie);
+    Optional<List<Character>> getByMovieOrSeries(String movieOrSerie);
     Optional<Character> getCharacterById(int id);
     Character save(Character character);
     Character edit(Character character);

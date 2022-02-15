@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface PersonajeCrudRepository extends CrudRepository<Personaje, Integer> {
     Optional<List<Personaje>> findByNombre(String nombre);
     Optional<List<Personaje>> findByEdad(int edad);
-    Optional<List<Personaje>> findByPeliculasOSeriesAsociadas(MovieOrSerie movieOrSerie);
+    Optional<List<Personaje>> findByPeliculasOSeriesAsociadas(String movieOrSerie);
 
     @Modifying
     @Query(value = "UPDATE personaje u SET u.imagen = ?1 WHERE u.id = ?2", nativeQuery = true)

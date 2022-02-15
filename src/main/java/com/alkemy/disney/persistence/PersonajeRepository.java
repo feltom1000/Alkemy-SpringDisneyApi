@@ -38,7 +38,7 @@ public class PersonajeRepository implements CharacterRepository {
     }
 
     @Override
-    public Optional<List<Character>> getByMovieOrSeries(MovieOrSerie movieOrSerie) {
+    public Optional<List<Character>> getByMovieOrSeries(String movieOrSerie) {
         return personajeCrudRepository.findByPeliculasOSeriesAsociadas(movieOrSerie)
                 .map(personajes -> mapper.toCharacters(personajes));
     }
