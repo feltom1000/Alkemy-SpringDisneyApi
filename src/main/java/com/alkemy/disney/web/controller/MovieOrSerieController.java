@@ -27,14 +27,14 @@ public class MovieOrSerieController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/")
+    @GetMapping("/title")
     public ResponseEntity<List<MovieOrSerie>> getByTitle(@RequestParam("title") String title){
         return movieOrSerieService.getByTitle(title)
                 .map(movieOrSeries -> new ResponseEntity<>(movieOrSeries, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/")
+    @GetMapping("/calification")
     public ResponseEntity<List<MovieOrSerie>> getByCalification(@RequestParam("calification") int calification){
         return movieOrSerieService.getByCalification(calification)
                 .map(movieOrSeries -> new ResponseEntity<>(movieOrSeries, HttpStatus.OK))
