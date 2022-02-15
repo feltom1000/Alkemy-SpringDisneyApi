@@ -42,7 +42,7 @@ public class MovieOrSerieService {
         return moviesOrSeriesRepository.save(movieOrSerie);
     }
 
-    public MovieOrSerie edit(MovieOrSerie movieOrSerie){
+    public MovieOrSerie edit(int id, MovieOrSerie movieOrSerie){
         return moviesOrSeriesRepository.edit(movieOrSerie);
     }
 
