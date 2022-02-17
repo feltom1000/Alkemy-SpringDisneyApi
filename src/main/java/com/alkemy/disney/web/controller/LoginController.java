@@ -11,10 +11,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+
 @Controller
 public class LoginController {
     @Autowired
     private UsuarioService usuarioService;
+
+    @GetMapping("auth/login")
+    public String login (Model model){
+        model.addAttribute("usuario", new Usuario());
+
+        return "login";
+    }
 
     @GetMapping("/auth/registro")
     public String registroForm(Model model){
@@ -24,12 +33,12 @@ public class LoginController {
     }
 
     @PostMapping("/auth/registro")
-    public String registro(@ModelAttribute Usuario usuario, BindingResult result, Model model){
+    public String registro(@Valid @ModelAttribute Usuario usuario, BindingResult result, Model model){
         if(result.hasErrors()){
-            return "redirect:/auth/registro";
+            return "redirect:/";
         } else {
             model.addAttribute("usuario", usuarioService.registrar(usuario));
         }
-        return "redirect:/auth/registro";
+        return "redirect:/auth/login";
     }
 }
