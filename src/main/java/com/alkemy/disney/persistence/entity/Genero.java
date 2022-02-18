@@ -13,10 +13,6 @@ public class Genero {
     private String nombre;
     private String imagen;
 
-    @OneToMany(mappedBy = "genero")
-    private List<PeliculaOSerie> peliculaOSeries;
-
-
     public Integer getId() {
         return id;
     }
@@ -39,13 +35,5 @@ public class Genero {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }
-
-    public List<PeliculaOSerie> getPeliculaOSeries() {
-        return peliculaOSeries;
-    }
-
-    public void setPeliculaOSeries(List<PeliculaOSerie> peliculaOSeries) {
-        this.peliculaOSeries = peliculaOSeries;
     }
 }

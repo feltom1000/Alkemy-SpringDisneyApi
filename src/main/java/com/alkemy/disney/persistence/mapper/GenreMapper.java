@@ -15,8 +15,7 @@ public interface GenreMapper {
     @Mappings({
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "nombre", target = "name"),
-            @Mapping(source = "imagen", target = "img"),
-            @Mapping(source = "peliculaOSeries", target = "moviesOrSeriesList")
+            @Mapping(source = "imagen", target = "img")
     })
     Genre toGenre(Genero genero);
     List<Genre> toGenres(List<Genero> generos);

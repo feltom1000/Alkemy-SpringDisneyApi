@@ -11,11 +11,10 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {GenreMapper.class, CharacterMapper.class})
 public interface MoviesOrSeriesMapper {
-
     @Mappings({
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "imagen", target = "img"),
-            @Mapping(source = "titulo", target = "title"),
+            @Mapping(source = "titulo", target = "name"),
             @Mapping(source = "fechaDeCreacion", target = "creationDate"),
             @Mapping(source = "calificacion", target = "calification"),
             @Mapping(source = "generoId", target = "genreId"),

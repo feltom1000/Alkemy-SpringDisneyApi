@@ -6,7 +6,7 @@ import java.util.List;
 public class MovieOrSerie {
     private int id;
     private String img;
-    private String title;
+    private String name;
     private Date creationDate;
     private int calification;
 
@@ -25,11 +25,11 @@ public class MovieOrSerie {
     }
 
     public String getName() {
-        return title;
+        return name;
     }
 
     public void setName(String name) {
-        this.title = name;
+        this.name = name;
     }
 
     public String getImg() {
@@ -62,14 +62,6 @@ public class MovieOrSerie {
 
     public void setCharacters(List<Character> characters) {
         this.characters = characters;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Date getCreationDate() {

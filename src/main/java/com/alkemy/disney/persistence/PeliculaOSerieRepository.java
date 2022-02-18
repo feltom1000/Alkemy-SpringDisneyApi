@@ -63,7 +63,7 @@ public class PeliculaOSerieRepository implements MoviesOrSeriesRepository {
 
     @Override
     public MovieOrSerie edit(MovieOrSerie movieOrSerie) {
-        peliculaOSerieCrudRepository.editTituloById(movieOrSerie.getTitle(), movieOrSerie.getId());
+        peliculaOSerieCrudRepository.editTituloById(movieOrSerie.getName(), movieOrSerie.getId());
         peliculaOSerieCrudRepository.editCalificacionById(movieOrSerie.getCalification(), movieOrSerie.getId());
         peliculaOSerieCrudRepository.editFechaDeCreacionById(movieOrSerie.getCreationDate(), movieOrSerie.getId());
         peliculaOSerieCrudRepository.editImagenById(movieOrSerie.getImg(), movieOrSerie.getId());
