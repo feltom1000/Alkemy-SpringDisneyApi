@@ -1,5 +1,7 @@
 package com.alkemy.disney.web.controller;
 
+import com.alkemy.disney.domain.EmailForm;
+import com.alkemy.disney.domain.service.EmailService;
 import com.alkemy.disney.domain.service.UsuarioService;
 import com.alkemy.disney.persistence.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 
 @Controller
 public class LoginController {
     @Autowired
     private UsuarioService usuarioService;
+    @Autowired
+    private EmailService mailService;
 
     @GetMapping("auth/login")
     public String login (Model model){
@@ -34,10 +39,13 @@ public class LoginController {
 
     @PostMapping("/auth/registro")
     public String registro(@Valid @ModelAttribute Usuario usuario, BindingResult result, Model model){
+        String mensaje = "Bienvenido " + usuario.getUsername() + " a DinseyAPI";
+
         if(result.hasErrors()){
-            return "redirect:/";
+            return "redirect:/auth/registro";
         } else {
             model.addAttribute("usuario", usuarioService.registrar(usuario));
+            mailService.sendMail("feltom1000@hotmail.com", usuario.getMail(), "¡Bienvenido/a!", mensaje);
         }
         return "redirect:/auth/login";
     }
