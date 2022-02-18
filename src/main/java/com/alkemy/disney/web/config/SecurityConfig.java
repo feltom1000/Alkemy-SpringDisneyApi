@@ -1,4 +1,4 @@
-package com.alkemy.disney.web.security;
+package com.alkemy.disney.web.config;
 
 import com.alkemy.disney.domain.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
