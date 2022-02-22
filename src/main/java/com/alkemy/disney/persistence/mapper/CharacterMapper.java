@@ -9,7 +9,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {MoviesOrSeriesMapper.class})
+@Mapper(componentModel = "spring", uses = {RelationsMapper.class})
 public interface CharacterMapper {
 
     @Mappings({
@@ -19,7 +19,7 @@ public interface CharacterMapper {
             @Mapping(source = "edad", target = "age"),
             @Mapping(source = "peso", target = "weight"),
             @Mapping(source = "historia", target = "story"),
-            @Mapping(source = "peliculasOSeriesAsociadas", target = "moviesOrSeriesList")
+            @Mapping(source = "peliculasOSeriesAsociadas", target = "movieOrSerieList")
     })
     Character toCharacter(Personaje personaje);
     List<Character> toCharacters(List<Personaje> personajes);

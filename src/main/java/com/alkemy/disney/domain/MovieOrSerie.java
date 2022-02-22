@@ -2,6 +2,7 @@ package com.alkemy.disney.domain;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class MovieOrSerie {
     private int id;
@@ -13,7 +14,7 @@ public class MovieOrSerie {
     private int genreId;
 
     private Genre genre;
-    private List<Character> characters;
+    private Set<Relations> characters;
 
 
     public int getId() {
@@ -56,11 +57,11 @@ public class MovieOrSerie {
         this.genre = genre;
     }
 
-    public List<Character> getCharacters() {
+    public Set<Relations> getCharacters() {
         return characters;
     }
 
-    public void setCharacters(List<Character> characters) {
+    public void setCharacters(Set<Relations> characters) {
         this.characters = characters;
     }
 

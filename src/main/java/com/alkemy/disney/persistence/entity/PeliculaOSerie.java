@@ -1,14 +1,19 @@
 package com.alkemy.disney.persistence.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "pelicula_serie")
 public class PeliculaOSerie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
     private String imagen;
@@ -27,8 +32,9 @@ public class PeliculaOSerie {
     @JoinColumn(name = "id_genero", insertable = false, updatable = false)
     private Genero genero;
 
-    @ManyToMany(mappedBy = "peliculasOSeriesAsociadas")
-    private List<Personaje> personajes;
+    @OneToMany(mappedBy = "peliculaOSerie", cascade = {CascadeType.ALL})
+    @JsonBackReference
+    private Set<Relaciones> personajes;
 
 
     public Integer getId() {
@@ -71,14 +77,6 @@ public class PeliculaOSerie {
         this.genero = genero;
     }
 
-    public List<Personaje> getPersonajes() {
-        return personajes;
-    }
-
-    public void setPersonajes(List<Personaje> personajes) {
-        this.personajes = personajes;
-    }
-
     public String getTitulo() {
         return titulo;
     }
@@ -102,4 +100,34 @@ public class PeliculaOSerie {
     public void setCalificacion(Integer calificacion) {
         this.calificacion = calificacion;
     }
+
+    public Set<Relaciones> getPersonajes() {
+        return personajes;
+    }
+
+    public void setPersonajes(Set<Relaciones> personajes) {
+        this.personajes = personajes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PeliculaOSerie that = (PeliculaOSerie) o;
+        return Objects.equals(id, that.id) && Objects.equals(imagen, that.imagen) && Objects.equals(titulo, that.titulo) && Objects.equals(fechaDeCreacion, that.fechaDeCreacion) && Objects.equals(calificacion, that.calificacion) && Objects.equals(generoId, that.generoId) && Objects.equals(genero, that.genero);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, imagen, titulo, fechaDeCreacion, calificacion, generoId, genero);
+    }
+
+//    @Override
+//    public String toString() {
+//        return "PeliculaOSerie{" +
+//                "imagen='" + imagen + '\'' +
+//                ", titulo='" + titulo + '\'' +
+//                ", fechaDeCreacion=" + fechaDeCreacion +
+//                '}';
+//    }
 }

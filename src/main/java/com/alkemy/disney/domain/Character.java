@@ -1,6 +1,7 @@
 package com.alkemy.disney.domain;
 
 import java.util.List;
+import java.util.Set;
 
 public class Character {
     private int id;
@@ -10,7 +11,7 @@ public class Character {
     private int weight;
     private String story;
 
-    private List<MovieOrSerie> movieOrSerieList;
+    private Set<Relations> movieOrSerieList;
 
 
     public int getId() {
@@ -61,11 +62,11 @@ public class Character {
         this.story = story;
     }
 
-    public List<MovieOrSerie> getMoviesOrSeriesList() {
+    public Set<Relations> getMovieOrSerieList() {
         return movieOrSerieList;
     }
 
-    public void setMoviesOrSeriesList(List<MovieOrSerie> movieOrSerieList) {
+    public void setMovieOrSerieList(Set<Relations> movieOrSerieList) {
         this.movieOrSerieList = movieOrSerieList;
     }
 }

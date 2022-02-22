@@ -1,7 +1,11 @@
 package com.alkemy.disney.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "personaje")
@@ -16,13 +20,9 @@ public class Personaje {
     private Integer peso;
     private String historia;
 
-    @JoinTable(
-            name = "asociaciones",
-            joinColumns = @JoinColumn(name = "id_personaje", nullable = false),
-            inverseJoinColumns = @JoinColumn(name="id_pelicula_serie", nullable = false)
-    )
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<PeliculaOSerie> peliculasOSeriesAsociadas;
+    @OneToMany(mappedBy = "personaje", cascade = {CascadeType.ALL})
+    @JsonManagedReference
+    private Set<Relaciones> peliculasOSeriesAsociadas;
 
 
     public Integer getId() {
@@ -73,11 +73,19 @@ public class Personaje {
         this.historia = historia;
     }
 
-    public List<PeliculaOSerie> getPeliculasOSeriesAsociadas() {
+    public Set<Relaciones> getPeliculasOSeriesAsociadas() {
         return peliculasOSeriesAsociadas;
     }
 
-    public void setPeliculasOSeriesAsociadas(List<PeliculaOSerie> peliculasOSeriesAsociadas) {
+    public void setPeliculasOSeriesAsociadas(Set<Relaciones> peliculasOSeriesAsociadas) {
         this.peliculasOSeriesAsociadas = peliculasOSeriesAsociadas;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Personaje{" +
+//                "imagen='" + imagen + '\'' +
+//                ", nombre='" + nombre + '\'' +
+//                '}';
+//    }
 }

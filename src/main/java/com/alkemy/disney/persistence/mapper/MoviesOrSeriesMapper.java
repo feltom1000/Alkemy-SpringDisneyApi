@@ -9,7 +9,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {GenreMapper.class, CharacterMapper.class})
+@Mapper(componentModel = "spring", uses = {GenreMapper.class, RelationsMapper.class})
 public interface MoviesOrSeriesMapper {
     @Mappings({
             @Mapping(source = "id", target = "id"),
