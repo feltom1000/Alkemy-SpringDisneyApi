@@ -8,12 +8,12 @@ public class Relaciones {
     @EmbeddedId
     private RelacionesPK id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("peliculaOrSerieId")
     @JoinColumn(name = "id_pelicula_serie", insertable = false, updatable = false)
     private PeliculaOSerie peliculaOSerie;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("personajeId")
     @JoinColumn(name = "id_personaje", insertable = false, updatable = false)
     private Personaje personaje;

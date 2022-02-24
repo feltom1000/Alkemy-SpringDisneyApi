@@ -2,10 +2,7 @@ package com.alkemy.disney.persistence.mapper;
 
 import com.alkemy.disney.domain.MovieOrSerie;
 import com.alkemy.disney.persistence.entity.PeliculaOSerie;
-import org.mapstruct.InheritInverseConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
+import org.mapstruct.*;
 
 import java.util.List;
 
@@ -19,7 +16,7 @@ public interface MoviesOrSeriesMapper {
             @Mapping(source = "calificacion", target = "calification"),
             @Mapping(source = "generoId", target = "genreId"),
             @Mapping(source = "genero", target = "genre"),
-            @Mapping(source = "personajes", target = "characters")
+            @Mapping(source = "personajes", target = "characters"),
     })
     MovieOrSerie toMovieOrSerie(PeliculaOSerie peliculaOSerie);
     List<MovieOrSerie> toMoviesOrSeries(List<PeliculaOSerie> peliculaOSeries);

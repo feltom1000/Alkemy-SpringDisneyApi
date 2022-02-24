@@ -4,6 +4,8 @@ package com.alkemy.disney.persistence.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.*;
@@ -32,9 +34,8 @@ public class PeliculaOSerie {
     @JoinColumn(name = "id_genero", insertable = false, updatable = false)
     private Genero genero;
 
-    @OneToMany(mappedBy = "peliculaOSerie", cascade = {CascadeType.ALL})
-    @JsonBackReference
-    private Set<Relaciones> personajes;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "peliculaOSerie", cascade = {CascadeType.ALL})
+    private Set<Relaciones> personajes = new HashSet<>();
 
 
     public Integer getId() {

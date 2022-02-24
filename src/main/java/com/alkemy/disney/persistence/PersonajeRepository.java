@@ -15,9 +15,10 @@ import java.util.Optional;
 @Repository
 public class PersonajeRepository implements CharacterRepository {
     @Autowired
-    PersonajeCrudRepository personajeCrudRepository;
+    private PersonajeCrudRepository personajeCrudRepository;
     @Autowired
-    CharacterMapper mapper;
+    private CharacterMapper mapper;
+
 
     @Override
     public List<Character> getAll() {

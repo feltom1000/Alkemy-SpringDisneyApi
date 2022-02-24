@@ -1,5 +1,6 @@
 package com.alkemy.disney.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -20,9 +21,8 @@ public class Personaje {
     private Integer peso;
     private String historia;
 
-    @OneToMany(mappedBy = "personaje", cascade = {CascadeType.ALL})
-    @JsonManagedReference
-    private Set<Relaciones> peliculasOSeriesAsociadas;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "personaje", cascade = {CascadeType.ALL})
+    private Set<Relaciones> peliculasOSeriesAsociadas = new HashSet<>();
 
 
     public Integer getId() {

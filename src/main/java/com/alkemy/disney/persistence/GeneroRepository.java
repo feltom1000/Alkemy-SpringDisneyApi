@@ -15,9 +15,9 @@ import java.util.Optional;
 @Repository
 public class GeneroRepository implements GenreRepository {
     @Autowired
-    GeneroCrudRepository generoCrudRepository;
+    private GeneroCrudRepository generoCrudRepository;
     @Autowired
-    GenreMapper mapper;
+    private GenreMapper mapper;
 
     @Override
     public List<Genre> getAll() {

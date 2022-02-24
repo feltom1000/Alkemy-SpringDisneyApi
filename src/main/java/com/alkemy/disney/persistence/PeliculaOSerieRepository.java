@@ -15,9 +15,9 @@ import java.util.Optional;
 @Repository
 public class PeliculaOSerieRepository implements MoviesOrSeriesRepository {
     @Autowired
-    PeliculaOSerieCrudRepository peliculaOSerieCrudRepository;
+    private PeliculaOSerieCrudRepository peliculaOSerieCrudRepository;
     @Autowired
-    MoviesOrSeriesMapper mapper;
+    private MoviesOrSeriesMapper mapper;
 
 
     @Override
